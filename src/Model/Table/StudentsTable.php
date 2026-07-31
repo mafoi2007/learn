@@ -44,6 +44,11 @@ class StudentsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Classes', [
+            'foreignKey' => 'class_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -72,6 +77,29 @@ class StudentsTable extends Table
             ->requirePresence('sexe', 'create')
             ->notEmptyString('sexe');
 
+        $validator
+            ->email('email')
+            ->requirePresence('email', 'create')
+            ->notEmptyString('email');
+
+        $validator
+            ->integer('class_id')
+            ->notEmptyString('class_id');
+
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn(['class_id'], 'Classes'), ['errorField' => 'class_id']);
+
+        return $rules;
     }
 }

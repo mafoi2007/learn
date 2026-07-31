@@ -11,24 +11,22 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('N°') ?></th>
                     <th><?= $this->Paginator->sort('nom') ?></th>
                     <th><?= $this->Paginator->sort('prenom') ?></th>
                     <th><?= $this->Paginator->sort('sexe') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
+                    <th><?= $this->Paginator->sort('email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($students as $student): ?>
+                <?php $i = 1; foreach ($students as $student): ?>
                 <tr>
-                    <td><?= $this->Number->format($student->id) ?></td>
+                    <td><?= $i ?></td>
                     <td><?= h($student->nom) ?></td>
                     <td><?= h($student->prenom) ?></td>
                     <td><?= h($student->sexe) ?></td>
-                    <td><?= h($student->created) ?></td>
-                    <td><?= h($student->modified) ?></td>
+                    <td><?= h($student->email) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $student->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $student->id]) ?>
@@ -42,7 +40,7 @@
                         ) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+                <?php $i ++; endforeach; ?>
             </tbody>
         </table>
     </div>

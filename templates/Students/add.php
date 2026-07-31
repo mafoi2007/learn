@@ -20,6 +20,7 @@
                     echo $this->Form->control('nom');
                     echo $this->Form->control('prenom');
                     echo $this->Form->control('sexe');
+                    echo $this->Form->control('email');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

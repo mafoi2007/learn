@@ -12,6 +12,8 @@ use Cake\ORM\Entity;
  * @property string $nom
  * @property string $prenom
  * @property string $sexe
+ * @property string $email
+ * @property int $class_id
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
  */
@@ -30,6 +32,8 @@ class Student extends Entity
         'nom' => true,
         'prenom' => true,
         'sexe' => true,
+        'email' => true,
+        'class_id' => true,
         'created' => true,
         'modified' => true,
     ];
