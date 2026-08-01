@@ -31,17 +31,14 @@
                     <td><?= h($student->sexe) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($student->id) ?></td>
+                    <th><?= __('Email') ?></th>
+                    <td><?= h($student->email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($student->created) ?></td>
+                    <th><?= __('Class Name') ?></th>
+                    <td><?= h($student->school_class->nom) ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($student->modified) ?></td>
-                </tr>
+               
             </table>
         </div>
     </div>

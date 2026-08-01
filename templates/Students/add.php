@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Student $student
+ * @var \Cake\Collection\CollectionInterface|string[] $schoolClasses
  */
 ?>
 <div class="row">
@@ -21,6 +22,7 @@
                     echo $this->Form->control('prenom');
                     echo $this->Form->control('sexe');
                     echo $this->Form->control('email');
+                    echo $this->Form->control('school_class_id');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

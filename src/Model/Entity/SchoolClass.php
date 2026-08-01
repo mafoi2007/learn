@@ -6,7 +6,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Class Entity
+ * SchoolClass Entity
  *
  * @property int $id
  * @property string $nom
@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
  */
-class Class extends Entity
+class SchoolClass extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

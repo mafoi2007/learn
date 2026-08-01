@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Students Model
  *
+ * @property \App\Model\Table\SchoolClassesTable&\Cake\ORM\Association\BelongsTo $SchoolClasses
+ *
  * @method \App\Model\Entity\Student newEmptyEntity()
  * @method \App\Model\Entity\Student newEntity(array $data, array $options = [])
  * @method array<\App\Model\Entity\Student> newEntities(array $data, array $options = [])
@@ -45,8 +47,8 @@ class StudentsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Classes', [
-            'foreignKey' => 'class_id',
+        $this->belongsTo('SchoolClasses', [
+            'foreignKey' => 'school_class_id',
             'joinType' => 'INNER',
         ]);
     }
@@ -83,8 +85,8 @@ class StudentsTable extends Table
             ->notEmptyString('email');
 
         $validator
-            ->integer('class_id')
-            ->notEmptyString('class_id');
+            ->integer('school_class_id')
+            ->notEmptyString('school_class_id');
 
         return $validator;
     }
@@ -98,7 +100,7 @@ class StudentsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['class_id'], 'Classes'), ['errorField' => 'class_id']);
+        $rules->add($rules->existsIn(['school_class_id'], 'SchoolClasses'), ['errorField' => 'school_class_id']);
 
         return $rules;
     }

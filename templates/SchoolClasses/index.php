@@ -1,17 +1,17 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var iterable<\Cake\Datasource\EntityInterface> $classes
+ * @var iterable<\App\Model\Entity\SchoolClass> $schoolClasses
  */
 ?>
-<div class="classes index content">
-    <?= $this->Html->link(__('New Class'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Classes') ?></h3>
+<div class="schoolClasses index content">
+    <?= $this->Html->link(__('New School Class'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('School Classes') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('N°') ?></th>
                     <th><?= $this->Paginator->sort('nom') ?></th>
                     <th><?= $this->Paginator->sort('code') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
@@ -20,27 +20,28 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($classes as $class): ?>
+                <?php $i = 1; foreach ($schoolClasses as $schoolClass): ?>
                 <tr>
-                    <td><?= $this->Number->format($class->id) ?></td>
-                    <td><?= h($class->nom) ?></td>
-                    <td><?= h($class->code) ?></td>
-                    <td><?= h($class->created) ?></td>
-                    <td><?= h($class->modified) ?></td>
+                    <td><?= $i ?></td>
+                    <td><?= h($schoolClass->nom) ?></td>
+                    <td><?= h($schoolClass->code) ?></td>
+                    <td><?= h($schoolClass->created) ?></td>
+                    <td><?= h($schoolClass->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $class->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $class->id]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $schoolClass->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $schoolClass->id]) ?>
                         <?= $this->Form->postLink(
                             __('Delete'),
-                            ['action' => 'delete', $class->id],
+                            ['action' => 'delete', $schoolClass->id],
                             [
                                 'method' => 'delete',
-                                'confirm' => __('Are you sure you want to delete # {0}?', $class->id),
+                                'confirm' => __('Are you sure you want to delete # {0}?', $schoolClass->id),
                             ]
                         ) ?>
+                        <?= $this->Html->link(__('View Students'), ['action' => 'viewAll', $schoolClass->id]) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+                <?php $i++; endforeach; ?>
             </tbody>
         </table>
     </div>

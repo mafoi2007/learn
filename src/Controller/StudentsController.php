@@ -17,7 +17,8 @@ class StudentsController extends AppController
      */
     public function index()
     {
-        $query = $this->Students->find();
+        $query = $this->Students->find()
+            ->contain(['SchoolClasses']);
         $students = $this->paginate($query);
 
         $this->set(compact('students'));
@@ -32,7 +33,7 @@ class StudentsController extends AppController
      */
     public function view($id = null)
     {
-        $student = $this->Students->get($id, contain: []);
+        $student = $this->Students->get($id, contain: ['SchoolClasses']);
         $this->set(compact('student'));
     }
 
@@ -46,7 +47,6 @@ class StudentsController extends AppController
         $student = $this->Students->newEmptyEntity();
         if ($this->request->is('post')) {
             $student = $this->Students->patchEntity($student, $this->request->getData());
-            
             if ($this->Students->save($student)) {
                 $this->Flash->success(__('The student has been saved.'));
 
@@ -54,8 +54,8 @@ class StudentsController extends AppController
             }
             $this->Flash->error(__('The student could not be saved. Please, try again.'));
         }
-        $this->set(compact('student'));
-        // debug($student->getErrors());
+        $schoolClasses = $this->Students->SchoolClasses->find('list', limit: 200)->all();
+        $this->set(compact('student', 'schoolClasses'));
     }
 
     /**
@@ -67,7 +67,7 @@ class StudentsController extends AppController
      */
     public function edit($id = null)
     {
-        $student = $this->Students->get($id, contain: []);
+        $student = $this->Students->get($id, contain: ['SchoolClasses']);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $student = $this->Students->patchEntity($student, $this->request->getData());
             if ($this->Students->save($student)) {
@@ -77,7 +77,8 @@ class StudentsController extends AppController
             }
             $this->Flash->error(__('The student could not be saved. Please, try again.'));
         }
-        $this->set(compact('student'));
+        $schoolClasses = $this->Students->SchoolClasses->find('list', limit: 200)->all();
+        $this->set(compact('student', 'schoolClasses'));
     }
 
     /**

@@ -24,9 +24,9 @@ class StudentsFixture extends TestFixture
                 'prenom' => 'Lorem ipsum dolor sit amet',
                 'sexe' => 'L',
                 'email' => 'Lorem ipsum dolor sit amet',
-                'class_id' => 1,
-                'created' => '2026-07-31 00:21:53',
-                'modified' => '2026-07-31 00:21:53',
+                'school_class_id' => 1,
+                'created' => '2026-07-31 01:24:41',
+                'modified' => '2026-07-31 01:24:41',
             ],
         ];
         parent::init();

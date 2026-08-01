@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\ClassesController;
+use App\Controller\SchoolClassesController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\ClassesController Test Case
+ * App\Controller\SchoolClassesController Test Case
  *
- * @link \App\Controller\ClassesController
+ * @link \App\Controller\SchoolClassesController
  */
-class ClassesControllerTest extends TestCase
+class SchoolClassesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,14 +22,14 @@ class ClassesControllerTest extends TestCase
      * @var array<string>
      */
     protected array $fixtures = [
-        'app.Classes',
+        'app.SchoolClasses',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @link \App\Controller\ClassesController::index()
+     * @link \App\Controller\SchoolClassesController::index()
      */
     public function testIndex(): void
     {
@@ -40,7 +40,7 @@ class ClassesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @link \App\Controller\ClassesController::view()
+     * @link \App\Controller\SchoolClassesController::view()
      */
     public function testView(): void
     {
@@ -51,7 +51,7 @@ class ClassesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @link \App\Controller\ClassesController::add()
+     * @link \App\Controller\SchoolClassesController::add()
      */
     public function testAdd(): void
     {
@@ -62,7 +62,7 @@ class ClassesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @link \App\Controller\ClassesController::edit()
+     * @link \App\Controller\SchoolClassesController::edit()
      */
     public function testEdit(): void
     {
@@ -73,7 +73,7 @@ class ClassesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @link \App\Controller\ClassesController::delete()
+     * @link \App\Controller\SchoolClassesController::delete()
      */
     public function testDelete(): void
     {

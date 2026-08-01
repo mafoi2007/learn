@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ClassesTable;
+use App\Model\Table\SchoolClassesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ClassesTable Test Case
+ * App\Model\Table\SchoolClassesTable Test Case
  */
-class ClassesTableTest extends TestCase
+class SchoolClassesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ClassesTable
+     * @var \App\Model\Table\SchoolClassesTable
      */
-    protected $Classes;
+    protected $SchoolClasses;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class ClassesTableTest extends TestCase
      * @var array<string>
      */
     protected array $fixtures = [
-        'app.Classes',
+        'app.SchoolClasses',
     ];
 
     /**
@@ -35,8 +35,8 @@ class ClassesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Classes') ? [] : ['className' => ClassesTable::class];
-        $this->Classes = $this->getTableLocator()->get('Classes', $config);
+        $config = $this->getTableLocator()->exists('SchoolClasses') ? [] : ['className' => SchoolClassesTable::class];
+        $this->SchoolClasses = $this->getTableLocator()->get('SchoolClasses', $config);
     }
 
     /**
@@ -46,7 +46,7 @@ class ClassesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Classes);
+        unset($this->SchoolClasses);
 
         parent::tearDown();
     }
@@ -55,7 +55,7 @@ class ClassesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @link \App\Model\Table\ClassesTable::validationDefault()
+     * @link \App\Model\Table\SchoolClassesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
