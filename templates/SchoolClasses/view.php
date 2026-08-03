@@ -11,6 +11,7 @@
             <?= $this->Html->link(__('Edit School Class'), ['action' => 'edit', $schoolClass->id], ['class' => 'side-nav-item']) ?>
             <?= $this->Form->postLink(__('Delete School Class'), ['action' => 'delete', $schoolClass->id], ['confirm' => __('Are you sure you want to delete # {0}?', $schoolClass->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List School Classes'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Student List'), ['action' => 'view-all', $schoolClass->id], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New School Class'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>

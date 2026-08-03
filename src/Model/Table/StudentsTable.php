@@ -100,8 +100,12 @@ class StudentsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['school_class_id'], 'SchoolClasses'), ['errorField' => 'school_class_id']);
+        $rules->add(
+            $rules->existsIn(['school_class_id'], 'SchoolClasses'), 
+                    ['errorField' => 'school_class_id']);
 
+        $rules->add($rules->isUnique(['nom']), 
+                    ['errorField' => 'nom']);
         return $rules;
     }
 }

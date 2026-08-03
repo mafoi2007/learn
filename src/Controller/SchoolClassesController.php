@@ -32,7 +32,7 @@ class SchoolClassesController extends AppController
      */
     public function view($id = null)
     {
-        $schoolClass = $this->SchoolClasses->get($id, contain: []);
+        $schoolClass = $this->SchoolClasses->get($id, contain: ['Students']);
         $this->set(compact('schoolClass'));
     }
 
@@ -46,9 +46,7 @@ class SchoolClassesController extends AppController
      */
     public function viewAll($id = null)
     {
-        $schoolClass = $this->SchoolClasses->find()
-        ->contain(['Students'])
-        ->all();
+        $schoolClass = $this->SchoolClasses->get($id, contain: ['Students']);
         $this->set(compact('schoolClass'));
     }
 
